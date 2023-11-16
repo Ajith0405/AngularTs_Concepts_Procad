@@ -1,0 +1,7 @@
+<div class="d-flex">
+    <input class="form-control w-25" type="text" [(ngModel)]="searchText" (input)="onSearchTextChanged()">
+    <button class="btn btn-success" [disabled]="!searchText" >Search</button>
+</div>
+<div *ngIf="searchText">
+    <p>Search Results for : {{searchText}}</p>
+</div>
