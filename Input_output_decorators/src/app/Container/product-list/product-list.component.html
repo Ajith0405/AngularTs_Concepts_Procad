@@ -1,0 +1,14 @@
+<h1>Product List Components</h1>
+<app-filter
+  [all]="totalProductCount"
+  [inStock]="totalProductInstock"
+  [outOfStock]="totalProductOutStock"
+  (selectedFilterButtonChanged)="onFilterChanged($event)"
+  
+></app-filter>
+<div class="d-flex">
+    <div *ngFor="let product of products" >  
+        <app-product [product]="product" *ngIf="selectedFilter === 'all' || product.isAvailable.toString() === selectedFilter"></app-product>
+    </div>
+</div>
+
