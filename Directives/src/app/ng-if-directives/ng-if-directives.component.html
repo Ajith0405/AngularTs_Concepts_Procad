@@ -1,0 +1,20 @@
+<h1>ng-if-directives</h1>
+<div class="search d-flex w-25"> 
+    <input class="form-control" [(ngModel)]="searchText"/>
+    <button class="btn btn-primary">Search</button>
+</div>
+<div *ngIf="searchText !='' " >
+    <h3>Search results :{{searchText}}</h3>
+</div>
+
+<div class="card mb-2" *ngFor="let productItem of products" style="width: 18rem;">
+<h4 class="position-absolute bg-warning rounded-2 text-danger" style="left: 190px;" *ngIf="productItem.offerPrice">{{ (100 - (productItem.offerPrice/productItem.price *100)).toFixed(0)}}% OFF</h4>
+    <img [src]="productItem.imageUrl" class="card-img-top mt-3" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{productItem.name}}</h3>
+      <h5 class="card-title" *ngIf="!productItem.offerPrice">{{productItem.price | currency:'INR' }}</h5>
+      <h5 class="card-title" *ngIf="productItem.offerPrice" style="text-decoration: line-through;">{{productItem.price | currency:'INR' }}</h5>
+      <h5 class="card-title" *ngIf="productItem.offerPrice">{{productItem.offerPrice | currency:'INR' }}</h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>

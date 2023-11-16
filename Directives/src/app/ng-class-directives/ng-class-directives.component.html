@@ -1,0 +1,7 @@
+<h1>ng-class-directives works!</h1>
+<div class="search d-flex w-25"> 
+    <input class="form-control" [(ngModel)]="searchText"/>
+    <button [ngClass]="{'btn':true,'btn-warning':searchText}" [disabled]="!searchText">Search</button>
+</div>
+
+<div *ngIf="searchText!=''">Search Items: {{searchText}}</div>

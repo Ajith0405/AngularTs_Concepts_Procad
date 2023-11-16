@@ -1,0 +1,26 @@
+<h1>ngFor Directive</h1>
+<!-- Example 1 -->
+<div *ngFor="let item of [1,2,3,4,5,6,8]">
+    <p>Array elemenys : {{item}}</p>
+</div>
+<!-- Example 2 -->
+<div *ngFor="let product of productsName">
+    <h4>{{product}}</h4>
+
+</div>
+<!-- Example 3 -->
+<div>
+    <a *ngFor="let menu of mainMenu" href="#">{{menu}}</a>
+</div>
+
+<!-- Example 4 -->
+<div class="card" *ngFor="let productItem of products" style="width: 18rem;">
+    <img [src]="productItem.imageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{productItem.name}}</h3>
+      <h5 class="card-title">{{productItem.price | currency:'INR' }}</h5>
+      <h5 class="card-title">Colors Available : {{productItem.color.length}} - {{productItem.color[2]}}</h5>
+      <p class="card-text">{{productItem.description}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
