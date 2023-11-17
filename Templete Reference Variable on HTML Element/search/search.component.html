@@ -1,0 +1,7 @@
+<div class="d-flex">
+    <input class="form-control w-25" type="text" #searchInput >
+    <button class="btn btn-success" (click)="updateSearchText(searchInput)">Search</button>
+</div>
+<div *ngIf="searchText !=''">
+    <p>Search Results for : {{searchText}}</p>
+</div>
