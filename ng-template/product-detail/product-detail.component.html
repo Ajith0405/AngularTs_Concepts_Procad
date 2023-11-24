@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-6">
+    <div class="d-flex justify-content-center">
+      <img
+        class=""
+        [src]="choosedProduct.imgUrl"
+        [alt]="choosedProduct.name"
+        width="350px"
+      />
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{ choosedProduct.name }}</h1>
+        <h3>{{ choosedProduct.price | currency : "INR" }}</h3>
+        <h4>{{ choosedProduct.description }}</h4>
+        <h5>Brand : {{ choosedProduct.brand }}</h5>
+        <span class="" *ngFor="let color of choosedProduct.color" [style.backgroundColor]="color" style="width: 25px;height: 25px;">
+          <span>{{
+            color
+          }}</span>
+        </span> <br>
+        <button class="btn btn-primary" *ngIf="choosedProduct.isAvailable;else notifyMe">
+            Add to Cart
+          </button>
+          <ng-template #notifyMe>
+            <button class="btn btn-primary">
+                Notify me!
+              </button>
+          </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
