@@ -1,0 +1,15 @@
+<div  style="display: flex; justify-content: space-around;">
+    <div appHighlighter *ngFor="let p of products" style="border: 1px solid red;border-radius: 5px;background-color:lightcyan; width: 350px;">
+        <img [src]="p.img" [alt]="p.pName" style="width: 250px;height: 250px;">
+        <h3>{{p.pName}}</h3>
+        <h4>{{p.price}}</h4>
+        <div style="display: flex;justify-content:space-evenly;">
+            <h5 setbackground>{{p.gender}}</h5>
+            <h5 setbackground>{{p.color}}</h5>
+            <h5 setbackground>{{p.size}}</h5>
+        </div>
+        <div>
+            <button setbackground>Buy Now</button>
+        </div>
+    </div>
+</div>
