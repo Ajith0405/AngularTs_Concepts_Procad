@@ -1,0 +1,12 @@
+
+<div class="container">
+    <h1>Main component</h1>
+    <input type="text" #inputEl (focus)="0">
+    <button (click)="onBtnClicked(inputEl)"> Submit </button>
+    <p #mainPara> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nemo. </p>
+    <app-child-comp [message]="inputValue">
+       <p #para>This is Content Child of Child component..</p>
+    </app-child-comp>
+</div>
+
+
