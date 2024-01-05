@@ -1,11 +1,11 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnDestroy, OnInit, QueryList, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-child-comp',
   templateUrl: './child-comp.component.html',
   styleUrls: ['./child-comp.component.css']
 })
-export class ChildCompComponent implements OnChanges,OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
+export class ChildCompComponent implements OnChanges,OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
  
   @Input() message:String[]=[];
 
@@ -33,18 +33,24 @@ export class ChildCompComponent implements OnChanges,OnInit, DoCheck, AfterConte
   ngAfterContentChecked(): void {
       console.log("ngAfterContentChecked Hook is called..");
       // console.log(this.paraContentChild.nativeElement);
-      // console.log("ngAfterContentCheck",this.headViewChild); //ngAfterContentCheck undefined   
+      // console.log("ngAfterContentCheck",this.headViewChild); //ngAfterContentCheck undefined
+      
   }
   ngAfterViewInit(): void {
       console.log("ngAfetrViewInit Hook is called...."); 
       // console.log('ngAfetrViewInit Hook',this.headViewChild); //ElementRef {nativeElement: h2}
   }
+
   ngAfterViewChecked(): void {
       console.log("ngAfterViewChecked hook is called...");
-      console.log(this.headViewChild.nativeElement);
-      console.log(this.msgViewChildren);
+      // console.log(this.headViewChild.nativeElement);
+      // console.log(this.msgViewChildren);
+  }
+  ngOnDestroy(): void {
+      console.log("ngDestory hook is called..");
       
   }
+  
 
 
 

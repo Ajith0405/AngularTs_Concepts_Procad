@@ -15,9 +15,4 @@ export class MainCompComponent {
 
       
   }
-
-  
-  ngOnInit(): void {
-   
-  }
 }
